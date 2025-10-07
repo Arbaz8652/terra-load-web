@@ -1,0 +1,23 @@
+{
+  "name": "terra-load-web",
+  "version": "1.0.0",
+  "description": "Upload file directly on aws s3 ",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Arbaz8652/terra-load-web.git"
+  },
+  "keywords": [
+    "large",
+    "files"
+  ],
+  "author": "arbaz",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Arbaz8652/terra-load-web/issues"
+  },
+  "homepage": "https://github.com/Arbaz8652/terra-load-web#readme"
+}
