@@ -91,6 +91,9 @@
             file = e.target.files[0];
             uploadBtn.disabled = !file;
         });
+        // Uncomment this if you are running a local server
+        // const baseUrl = 'http://127.0.0.1:3000'
+        const baseUrl = '';
 
         uploadBtn.addEventListener("click", async () => {
             if (!file) return alert("Select a file first!");
@@ -99,7 +102,7 @@
 
             try {
                 // Step 1: Create multipart upload
-                const createRes = await fetch(" http://127.0.0.1:3000/api/v1/upload/create-multipart", {
+                const createRes = await fetch(`${baseUrl}/api/v1/upload/create-multipart`, {
                     method: "POST",
                     headers: { "Content-Type": "application/json" },
                     body: JSON.stringify({
@@ -118,7 +121,7 @@
                 }
 
                 // Step 3: Get presigned URLs
-                const urlRes = await fetch("http://127.0.0.1:3000/api/v1/upload/get-presigned-urls", {
+                const urlRes = await fetch(`${baseUrl}/api/v1/upload/get-presigned-urls`, {
                     method: "POST",
                     headers: { "Content-Type": "application/json" },
                     body: JSON.stringify({
@@ -151,7 +154,7 @@
 
                 // Step 5: Complete upload
                 statusText.textContent = "Finalizing upload...";
-                await fetch("http://127.0.0.1:3000/api/v1/upload/complete-multipart", {
+                await fetch(`${baseUrl}/api/v1/upload/complete-multipart`, {
                     method: "POST",
                     headers: { "Content-Type": "application/json" },
                     body: JSON.stringify({ uploadId, key, parts: uploadedParts }),
